@@ -14,6 +14,13 @@ else
   echo "SECURITY is set to '$SECURITY'";
 fi
 
+if [ -z ${SMALLFILES+x} ]; then 
+  echo "SMALLFILES is unset";
+  SMALLFILES="false"
+else 
+  echo "SMALLFILES is set to '$SMALLFILES'";
+fi
+
 function kill {
     if screen -list | grep "mongodb"; then
         screen -ls | grep mongodb | cut -d. -f1 | awk '{print $1}' | xargs kill
