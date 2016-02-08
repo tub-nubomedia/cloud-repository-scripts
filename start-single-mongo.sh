@@ -30,6 +30,7 @@ else
 	screen -d -m -S mongodb mongod --port $PORT --dbpath /home/ubuntu/data
 fi
 
+echo "wainting for mongodb to start"
 while ! nc -z localhost $PORT; do
   sleep 0.5 # wait for 1/10 of the second before check again
 done
@@ -37,7 +38,7 @@ done
 
 if [ $SECURITY = 'true' ]
 then
-  
+  echo "enabling security"
   if [ -z ${USERNAME_MD+x} ]; then
     echo "USERNAME_MD needs to be set if SECURITY is set to true"
     exit 99
