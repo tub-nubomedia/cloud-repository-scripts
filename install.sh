@@ -9,11 +9,11 @@ sudo apt-get install -y mongodb-org screen unzip openjdk-7-jre
 
 sudo service mongod stop
 
-cd /opt
-sudo wget http://builds.kurento.org/release/stable/kurento-repository-server.zip
+# cd /opt
+# sudo wget http://builds.kurento.org/release/stable/kurento-repository-server.zip
 
-unzip kurento-repository-server.zip
-cd kurento-repository-server-6.3.0
+# unzip kurento-repository-server.zip
+# cd kurento-repository-server-6.3.0
 
-bin/install.sh
+# bin/install.sh
 /etc/init.d/kurento-repo stop

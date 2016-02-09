@@ -1,5 +1,7 @@
 #!/bin/bash
 
+KURENTO_CONFIG_FILE="/opt/kurento-repository-server-6.3.0/config/kurento-repo.conf.json"
+
 if [ -z ${PORT+x} ]; then 
   echo "PORT is unset";
   PORT=27018
@@ -9,9 +11,9 @@ fi
 
 
 if [[ $SECURITY = "true" ]]; then
-	sudo sed -i -e "s/127.0.0.1/$internal_nubomedia_floatingIp/g" -e "s/localhost/$USERNAME_MD:$PASSWORD@localhost:$PORT/g" /etc/kurento/kurento-repo.conf.json
+	sudo sed -i -e "s/127.0.0.1/$internal_nubomedia_floatingIp/g" -e "s/localhost/$USERNAME_MD:$PASSWORD@localhost:$PORT/g" $KURENTO_CONFIG_FILE
 else
-	sudo sed -i -e "s/127.0.0.1/$internal_nubomedia_floatingIp/g" -e "s/localhost/localhost:$PORT/g" /etc/kurento/kurento-repo.conf.json
+	sudo sed -i -e "s/127.0.0.1/$internal_nubomedia_floatingIp/g" -e "s/localhost/localhost:$PORT/g" $KURENTO_CONFIG_FILE
 fi
 
 
