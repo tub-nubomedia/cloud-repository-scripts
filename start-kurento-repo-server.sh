@@ -13,7 +13,7 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-KURENTO_CONFIG_FILE="/opt/kurento-repository-server-6.3.0/config/kurento-repo.conf.json"
+KURENTO_CONFIG_FILE="/opt/kurento-repository-server-6.4.0/config/kurento-repo.conf.json"
 
 if [ -z ${PORT+x} ]; then 
   echo "PORT is unset";
@@ -33,5 +33,5 @@ fi
 # java bug for secure random generation
 sudo sed -i -e 's/securerandom.source=file:\/dev\/urandom/securerandom.source=file:\/dev\/.\/urandom/g'  /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/security/java.security
 
-cd /opt/kurento-repository-server-6.3.0
+cd /opt/kurento-repository-server-6.4.0
 screen -d -m -S kurento-repo-server bin/start.sh
